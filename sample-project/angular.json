@@ -23,13 +23,8 @@
             "polyfills": "projects/demo/src/polyfills.ts",
             "tsConfig": "projects/demo/tsconfig.app.json",
             "aot": false,
-            "assets": [
-              "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
-            ],
-            "styles": [
-              "projects/demo/src/styles.scss"
-            ],
+            "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
+            "styles": ["projects/demo/src/styles.scss"],
             "scripts": [
               {
                 "input": "node_modules/document-register-element/build/document-register-element.js"
@@ -73,9 +68,7 @@
               ]
             },
             "standAlone": {
-              "styles": [
-                "projects/demo/src/styles.scss"
-              ]
+              "styles": ["projects/demo/src/styles.scss"]
             },
             "controlledZoneLess": {
               "fileReplacements": [
@@ -98,29 +91,19 @@
                 }
               ],
               "polyfills": "projects/demo/src/polyfills.zone-less.ts",
-              "styles": [
-                "projects/demo/src/styles.scss"
-              ]
+              "styles": ["projects/demo/src/styles.scss"]
             },
             "withElementsControlled": {
-              "scripts": [
-                "dist/elements-controlled/elements.js"
-              ]
+              "scripts": ["dist/elements-controlled/elements.js"]
             },
             "withElementsStandAlone": {
-              "scripts": [
-                "dist/elements-stand-alone/elements.js"
-              ]
+              "scripts": ["dist/elements-stand-alone/elements.js"]
             },
             "withElementsZoneLessControlled": {
-              "scripts": [
-                "dist/elements-zone-less-controlled/elements.js"
-              ]
+              "scripts": ["dist/elements-zone-less-controlled/elements.js"]
             },
             "withElementsZoneLessStandAlone": {
-              "scripts": [
-                "dist/elements-zone-less-stand-alone/elements.js"
-              ]
+              "scripts": ["dist/elements-zone-less-stand-alone/elements.js"]
             }
           }
         },
@@ -179,13 +162,8 @@
             "polyfills": "projects/demo/src/polyfills.ts",
             "tsConfig": "projects/demo/tsconfig.spec.json",
             "karmaConfig": "projects/demo/karma.conf.js",
-            "assets": [
-              "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
-            ],
-            "styles": [
-              "projects/demo/src/styles.scss"
-            ],
+            "assets": ["projects/demo/src/favicon.ico", "projects/demo/src/assets"],
+            "styles": ["projects/demo/src/styles.scss"],
             "scripts": []
           }
         },
@@ -197,9 +175,7 @@
               "projects/demo/tsconfig.spec.json",
               "projects/demo/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -237,9 +213,7 @@
             "tsConfig": "projects/elements/tsconfig.app.json",
             "aot": false,
             "assets": [],
-            "styles": [
-              "projects/elements/src/styles.scss"
-            ],
+            "styles": ["projects/elements/src/styles.scss"],
             "scripts": [],
             "singleBundle": true,
             "keepPolyfills": true
@@ -332,6 +306,15 @@
               "singleBundle": true,
               "keepPolyfills": true
             },
+            "devControlledZoneScoped": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/elements/src/environments/environment.ts",
+                  "with": "projects/elements/src/environments/environment.devControlledZoneScoped.ts"
+                }
+              ],
+              "singleBundle": true
+            },
             "devStandAloneZoneLess": {
               "outputPath": "dist/elements-zone-less-stand-alone",
               "polyfills": "projects/elements/src/polyfills.zone-less.ts",
@@ -339,6 +322,16 @@
                 {
                   "replace": "projects/elements/src/environments/environment.ts",
                   "with": "projects/elements/src/environments/environment.devStandAlone.ts"
+                }
+              ]
+            },
+            "devStandAloneZoneScoped": {
+              "outputPath": "dist/elements-zone-scoped-stand-alone",
+              "polyfills": "projects/elements/src/polyfills.zone-less.ts",
+              "fileReplacements": [
+                {
+                  "replace": "projects/elements/src/environments/environment.ts",
+                  "with": "projects/elements/src/environments/environment.devStandAloneZoneScoped.ts"
                 }
               ]
             }
@@ -362,8 +355,14 @@
             "devControlledZoneLess": {
               "browserTarget": "elements:build:devControlledZoneLess"
             },
+            "devControlledZoneScoped": {
+              "browserTarget": "elements:build:devControlledZoneScoped"
+            },
             "devStandAloneZoneLess": {
               "browserTarget": "elements:build:devStandAloneZoneLess"
+            },
+            "devStandAloneZoneScoped": {
+              "browserTarget": "elements:build:devStandAloneZoneScoped"
             }
           }
         },
@@ -380,13 +379,8 @@
             "polyfills": "projects/elements/src/polyfills.ts",
             "tsConfig": "projects/elements/tsconfig.spec.json",
             "karmaConfig": "projects/elements/karma.conf.js",
-            "assets": [
-              "projects/elements/src/favicon.ico",
-              "projects/elements/src/assets"
-            ],
-            "styles": [
-              "projects/elements/src/styles.scss"
-            ],
+            "assets": ["projects/elements/src/favicon.ico", "projects/elements/src/assets"],
+            "styles": ["projects/elements/src/styles.scss"],
             "scripts": []
           }
         },
@@ -398,9 +392,7 @@
               "projects/elements/tsconfig.spec.json",
               "projects/elements/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -445,9 +437,7 @@
               "projects/helpers/tsconfig.lib.json",
               "projects/helpers/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -476,9 +466,7 @@
               "projects/elements-special/src/favicon.ico",
               "projects/elements-special/src/assets"
             ],
-            "styles": [
-              "projects/elements-special/src/styles.scss"
-            ],
+            "styles": ["projects/elements-special/src/styles.scss"],
             "scripts": [],
             "singleBundle": true,
             "keepPolyfills": true
@@ -546,9 +534,7 @@
               "projects/elements-special/src/favicon.ico",
               "projects/elements-special/src/assets"
             ],
-            "styles": [
-              "projects/elements-special/src/styles.scss"
-            ],
+            "styles": ["projects/elements-special/src/styles.scss"],
             "scripts": []
           }
         },
@@ -560,9 +546,7 @@
               "projects/elements-special/tsconfig.spec.json",
               "projects/elements-special/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

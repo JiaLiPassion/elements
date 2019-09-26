@@ -1,11 +1,10 @@
 import { ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 export const environment = {
-  name: 'devControlled',
   production: false,
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.ShadowDom,
   changeDetection: ChangeDetectionStrategy.Default,
   zoneLess: false,
-  zoneScoped: false,
+  zoneScoped: true,
   preCompiled: true
 };

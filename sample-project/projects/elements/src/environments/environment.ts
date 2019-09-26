@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import {ChangeDetectionStrategy, ViewEncapsulation} from "@angular/core";
+import { ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
 export const environment = {
   name: 'env',
@@ -10,6 +10,7 @@ export const environment = {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   zoneLess: false,
+  zoneScoped: false,
   preCompiled: true
 };
 

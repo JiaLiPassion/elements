@@ -6,6 +6,6 @@ export const environment = {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   zoneLess: false,
-  zoneScoped: false,
+  zoneScoped: true,
   preCompiled: true
 };

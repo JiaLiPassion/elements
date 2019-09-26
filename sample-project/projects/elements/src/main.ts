@@ -8,8 +8,35 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(ProviderAppModule, getCompilerOptions())
-  .catch(err => console.error(err));
+if (!environment.zoneScoped) {
+  platformBrowserDynamic()
+    .bootstrapModule(ProviderAppModule, getCompilerOptions())
+    .catch(err => console.error(err));
+} else {
+  import('../../helpers/src/zone-hack/scoped-zone').then(() => {
+    const Zone = (window as any)['Zone'];
+    try {
+      // init zone
+      Zone.__init__();
+      platformBrowserDynamic()
+        .bootstrapModule(ProviderAppModule)
+        .then(ref => {
+          // Ensure Angular destroys itself on hot reloads.
+          if (window['ngRef']) {
+            window['ngRef'].destroy();
+          }
+          window['ngRef'] = ref;
+
+          // Otherise, log the boot error
+        })
+        .catch(err => console.error(err));
+    } finally {
+      // unload all monkey-patch, so Window/Global API will be
+      // reverted to native one. No impact to outside world.
+      Zone.__unloadAll_patch();
+    }
+  });
+}
 
 console.log('Provider environment name:', environment.name);
 console.log('Provider encapsulation: ', getEncapsulation(environment.encapsulation));
@@ -22,7 +49,7 @@ function getCompilerOptions() {
   // If consumer app offers a setting (can be controlled or stand-alone)
   const ngZone = (window as any).ngZone;
   if (ngZone) {
-    return {ngZone};
+    return { ngZone };
   }
   // If configuration is zone-less (can be controlled or stand-alone)
   // if(environment.zoneLess) {}
